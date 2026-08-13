@@ -1,0 +1,35 @@
+# Python bytecode and test/tool caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+build/
+dist/
+
+# Local environments and editor metadata
+.venv/
+venv/
+env/
+.idea/
+.vscode/
+.spyproject/
+.spyderproject
+.DS_Store
+Thumbs.db
+
+# Local/generated simulation artifacts
+data/*
+!data/README.md
+outputs/*
+!outputs/README.md
+*.pkl
+
+# Temporary verification/rendering files
+tmp/
+.codex-verify-deps/
+
+# Keep only the curated README visual under version control
+docs/images/*
+!docs/images/fire_simulation_overview.png
