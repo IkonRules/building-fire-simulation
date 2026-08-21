@@ -6,7 +6,7 @@ from abc import ABC, abstractmethod
 import random
 import numpy as np
 
-from fire_building_sim.probability_distributions import (
+from building_fire_simulation.probability_distributions import (
     normal_sampler
 )
 

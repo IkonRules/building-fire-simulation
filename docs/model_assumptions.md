@@ -32,7 +32,7 @@ life-safety decisions.
 
 ## Parameters and provenance
 
-Material and behavioral values in `fire_building_sim/domain.py` are modelling inputs
+Material and behavioral values in `src/building_fire_simulation/domain.py` are modelling inputs
 used for this project. They have not been calibrated as a validated material database.
 Some heat-release modelling concepts were informed by the fire-safety literature,
 including:

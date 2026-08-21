@@ -8,19 +8,19 @@ from matplotlib.colors import Normalize, LinearSegmentedColormap
 from matplotlib import colormaps
 import pandas as pd
 
-from fire_building_sim.config import DATA_DIR
+from building_fire_simulation.config import DATA_DIR
 
 Coord = Tuple[int, int, int]
 
-from fire_building_sim.domain import (
+from building_fire_simulation.domain import (
     Cube, Item
 )
 
-from fire_building_sim.building_factory import (
+from building_fire_simulation.building_factory import (
     find_room_objects, draw_cube_faces
 )
 
-from fire_building_sim.fire_simulation import (
+from building_fire_simulation.fire_simulation import (
     FireSimulation
 )
 

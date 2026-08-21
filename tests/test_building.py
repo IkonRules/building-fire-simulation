@@ -1,6 +1,6 @@
 import unittest
 
-from fire_building_sim.scenarios import build_sample_world
+from building_fire_simulation.scenarios import build_sample_world
 
 
 class SampleBuildingTests(unittest.TestCase):

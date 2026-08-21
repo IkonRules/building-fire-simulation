@@ -7,21 +7,21 @@ from __future__ import annotations
 
 from typing import Optional, Tuple
 
-from fire_building_sim.config import DATA_DIR
-from fire_building_sim.agents import create_default_agents
-from fire_building_sim.building_factory import (
+from building_fire_simulation.config import DATA_DIR
+from building_fire_simulation.agents import create_default_agents
+from building_fire_simulation.building_factory import (
     create_sample_building,
     build_room_catalog_from_model,
     save_sample_building,
 )
-from fire_building_sim.fire_simulation import run_simulation
-from fire_building_sim.simulation_runners import (
+from building_fire_simulation.fire_simulation import run_simulation
+from building_fire_simulation.simulation_runners import (
     run_fire_until_extinguished,
     run_sim_in_chunks,
     run_sim_in_chunks_until_extinguished,
     run_and_save_sim_in_chunks_until_extinguished,
 )
-from fire_building_sim.simulation_settings import (
+from building_fire_simulation.simulation_settings import (
     ALL_HISTORY_PARAMETERS,
     BASIC_HISTORY_PARAMETERS,
     DEFAULT_NR_TICKS,

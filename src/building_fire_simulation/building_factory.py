@@ -4,14 +4,14 @@ import os
 
 
 
-from fire_building_sim.config import DATA_DIR
+from building_fire_simulation.config import DATA_DIR
 data_path = str(DATA_DIR)
 
 # Typing and collections
 from typing import List, Tuple, Dict, Set
 
 # Core building classes and constants
-from fire_building_sim.domain import (
+from building_fire_simulation.domain import (
     Coordinate, BuildingComponent, Cube, Room,
     Wall, FloorSurface, CeilingSurface,
     STRUCTURAL_MATERIALS, CoverMaterialItem, COVER_MATERIAL_ITEMS, Material,

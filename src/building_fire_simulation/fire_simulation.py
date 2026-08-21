@@ -6,13 +6,13 @@ from typing import Dict, Tuple, List, Optional, Iterable
 
 Coord = Tuple[int, int, int]
 
-from fire_building_sim.domain import (
+from building_fire_simulation.domain import (
     BuildingComponent, Cube, Wall, FloorSurface, CeilingSurface, CeilingRoof,
     BuildingAccessory,
     Item, FireSafetyItem, CoverMaterialItem
 )
 
-from fire_building_sim.agents import (
+from building_fire_simulation.agents import (
     FireDepartment, ensure_movement_hook_in_sim
 )
 

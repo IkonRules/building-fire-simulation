@@ -1,9 +1,15 @@
-# Optional runner scripts
+# Optional workflows
 
-These files expose advanced or interactive workflows retained from development. They
-do not need to be run in numerical order, and the package modules do not depend on
-state created by a previous script.
+These scripts are specialist consumers of the installed package. They are not a
+numbered pipeline, no script depends on another having run first, and none is the
+public demonstration.
 
-For a clean public demonstration, use `python examples/run_example.py`. The scripts
-here are optional utilities for saving a serialized sample world, running longer or
-chunked histories, and exploring analysis plots.
+| Script | Purpose |
+| --- | --- |
+| `save_sample_world.py` | Serialize a newly constructed sample building and room catalogue into `data/` for local Python workflows. |
+| `run_history_workflow.py` | Configure fixed, until-extinguished, chunked, or disk-backed full-history runs. |
+| `analyze_sample_simulation.py` | Open interactive plots and print analysis tables for a longer recorded run. |
+
+For the compact reproducible showcase and committed results, use
+`python demo/run_demo.py` instead. The package must first be installed as described
+in the root README.

@@ -1,0 +1,56 @@
+{
+  "burning_cells_at_last_saved_tick": 2,
+  "cells_ever_marked_burning": 10,
+  "disclaimer": "Synthetic exploratory output \u2014 not a validated fire-safety prediction.",
+  "final_saved_agent_locations": {
+    "Elin": [
+      4,
+      1,
+      0
+    ],
+    "John": [
+      4,
+      2,
+      1
+    ]
+  },
+  "final_simulation_time": 360,
+  "fire_department_action_totals": {
+    "agents_helped": 15,
+    "cooled_cubes": 8599,
+    "force_entries": 0,
+    "opened_egress": 17
+  },
+  "first_fire_department_arrival_tick": 136,
+  "history_fields": [
+    "fire_status",
+    "air_temp",
+    "components",
+    "agents",
+    "fire_department"
+  ],
+  "ignition_coordinate": [
+    0,
+    0,
+    0
+  ],
+  "modelled_inventory_loss_helper_at_end": 0.0,
+  "peak_modelled_air_temperature_c": 447.93,
+  "peak_temperature_tick": 185,
+  "probabilistic_parameters": false,
+  "released_combustible_energy_at_last_snapshot_kj": 570477.8,
+  "requested_ticks": 360,
+  "saved_snapshots": 360,
+  "scenario": "fixed_parameter_sample_building",
+  "seed": 2026,
+  "triggered_safety_devices": {
+    "SmokeAlarm": 3,
+    "Sprinkler": 3
+  },
+  "visualized_ticks": [
+    0,
+    85,
+    136,
+    359
+  ]
+}

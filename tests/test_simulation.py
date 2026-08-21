@@ -1,7 +1,7 @@
 import unittest
 
-from fire_building_sim.fire_simulation import FireSimulation
-from fire_building_sim.scenarios import build_sample_world, run_sample_simulation
+from building_fire_simulation.fire_simulation import FireSimulation
+from building_fire_simulation.scenarios import build_sample_world, run_sample_simulation
 
 
 class FireSimulationTests(unittest.TestCase):

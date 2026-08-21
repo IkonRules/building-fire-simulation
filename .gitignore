@@ -23,13 +23,11 @@ Thumbs.db
 data/*
 !data/README.md
 outputs/*
-!outputs/README.md
 *.pkl
 
 # Temporary verification/rendering files
 tmp/
 .codex-verify-deps/
 
-# Keep only the curated README visual under version control
+# Legacy local documentation figures are not public demonstration outputs
 docs/images/*
-!docs/images/fire_simulation_overview.png

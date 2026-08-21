@@ -1,22 +1,14 @@
-"""Run a sample fire simulation with all history fields enabled."""
+"""Run long, full-history or disk-backed workflows for the sample world."""
 
-from pathlib import Path
-import sys
-
-PROJECT_ROOT = Path(__file__).resolve().parents[1]
-if str(PROJECT_ROOT) not in sys.path:
-    sys.path.insert(0, str(PROJECT_ROOT))
-
-from fire_building_sim.scenarios import (
+from building_fire_simulation.scenarios import (
     run_full_history_simulation,
     run_full_history_simulation_until_extinguished,
     run_full_history_simulation_fixed_ticks_chunked,
     run_full_history_simulation_until_extinguished_chunked,
     run_full_history_simulation_until_extinguished_chunked_to_disk,
 )
-from fire_building_sim.simulation_settings import (
+from building_fire_simulation.simulation_settings import (
     ALL_HISTORY_PARAMETERS,
-    BASIC_HISTORY_PARAMETERS,
     RUN_MODE_OPTIONS,
     DEFAULT_RUN_MODE,
     DEFAULT_NR_TICKS,
@@ -73,10 +65,13 @@ START_FIRE_AT_COORD = (0, 0, 0)
 
 # Probabilistic simulation setting.
 # True  = probabilistic devices/parameters are enabled where supported.
-# False = deterministic run; probabilistic device sampling is skipped.
+# False = fixed-parameter run; probabilistic device sampling is skipped.
 PROBABILISTIC = DEFAULT_PROBABILISTIC
-# Alternative deterministic setting:
+# Alternative fixed-parameter setting:
 # PROBABILISTIC = False
+
+# Seed Python and supported NumPy draws for repeatable exploratory runs.
+RANDOM_SEED = 2026
 
 # Whether to save history snapshots.
 SAVE_FULL_HISTORY = DEFAULT_SAVE_FULL_HISTORY
@@ -90,14 +85,8 @@ SNAPSHOT_INTERVAL = DEFAULT_SNAPSHOT_INTERVAL
 # SNAPSHOT_INTERVAL = 5
 # SNAPSHOT_INTERVAL = 10
 
-# All currently supported history fields.
-SAVE_HISTORY_PARAMETERS = ALL_HISTORY_PARAMETERS
-# Alternatives:
-# SAVE_HISTORY_PARAMETERS = BASIC_HISTORY_PARAMETERS
-# SAVE_HISTORY_PARAMETERS = ("fire_status", "air_temp")
-
 # Fire department settings.
-FIRE_DEPT_ARRIVAL_COORDS = (4, 4, 4)
+FIRE_DEPT_ARRIVAL_COORDS = (4, 4, 0)
 FIRE_DEPT_RESPONSE_TIME = 240
 # Alternatives:
 # FIRE_DEPT_RESPONSE_TIME = 60
@@ -109,10 +98,10 @@ VERBOSE = DEFAULT_UNTIL_EXTINGUISHED_VERBOSE
 # VERBOSE = False
 
 # Used only by RUN_MODE == "until_extinguished_chunked_to_disk".
-# None means use the default project data folder.
+# None means use the default project data folder. Existing files may be replaced.
 CHUNK_OUTPUT_DIR = None
 # Alternative repository-relative folder:
-# CHUNK_OUTPUT_DIR = PROJECT_ROOT / "outputs" / "chunks"
+# CHUNK_OUTPUT_DIR = "outputs/chunks"
 
 
 # -------------------------------------------------------------------------
@@ -131,6 +120,7 @@ if RUN_MODE == "fixed_ticks":
         snapshot_interval=SNAPSHOT_INTERVAL,
         fire_dept_arrival_coords=FIRE_DEPT_ARRIVAL_COORDS,
         fire_dept_response_time=FIRE_DEPT_RESPONSE_TIME,
+        random_seed=RANDOM_SEED,
     )
 
 elif RUN_MODE == "until_extinguished":
@@ -143,6 +133,7 @@ elif RUN_MODE == "until_extinguished":
         fire_dept_arrival_coords=FIRE_DEPT_ARRIVAL_COORDS,
         fire_dept_response_time=FIRE_DEPT_RESPONSE_TIME,
         verbose=VERBOSE,
+        random_seed=RANDOM_SEED,
     )
 
 elif RUN_MODE == "fixed_ticks_chunked":
@@ -156,6 +147,7 @@ elif RUN_MODE == "fixed_ticks_chunked":
         fire_dept_arrival_coords=FIRE_DEPT_ARRIVAL_COORDS,
         fire_dept_response_time=FIRE_DEPT_RESPONSE_TIME,
         verbose=VERBOSE,
+        random_seed=RANDOM_SEED,
     )
 
 elif RUN_MODE == "until_extinguished_chunked":
@@ -169,6 +161,7 @@ elif RUN_MODE == "until_extinguished_chunked":
         fire_dept_arrival_coords=FIRE_DEPT_ARRIVAL_COORDS,
         fire_dept_response_time=FIRE_DEPT_RESPONSE_TIME,
         verbose=VERBOSE,
+        random_seed=RANDOM_SEED,
     )
 
 elif RUN_MODE == "until_extinguished_chunked_to_disk":
@@ -183,6 +176,7 @@ elif RUN_MODE == "until_extinguished_chunked_to_disk":
         fire_dept_arrival_coords=FIRE_DEPT_ARRIVAL_COORDS,
         fire_dept_response_time=FIRE_DEPT_RESPONSE_TIME,
         verbose=VERBOSE,
+        random_seed=RANDOM_SEED,
     )
 
 
@@ -192,7 +186,7 @@ print(f"Final tick: {sim.time}")
 print(f"Probabilistic: {sim.probabilistic}")
 print(f"Save full history: {sim.save_full_history}")
 print(f"Snapshot interval: {SNAPSHOT_INTERVAL}")
-print(f"History fields: {SAVE_HISTORY_PARAMETERS}")
+print(f"History fields: {ALL_HISTORY_PARAMETERS}")
 print(f"Saved snapshots currently in memory: {len(sim.history)}")
 
 if RUN_MODE in ("fixed_ticks", "fixed_ticks_chunked"):

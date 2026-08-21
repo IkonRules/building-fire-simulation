@@ -15,7 +15,7 @@ import os
 import pickle
 from typing import Optional, Tuple
 
-from fire_building_sim.config import DATA_DIR
+from building_fire_simulation.config import DATA_DIR
 
 
 def is_fire_extinguished(sim) -> bool:

@@ -8,11 +8,11 @@ from collections import deque
 from copy import deepcopy
 import math
 
-from fire_building_sim.domain import (
+from building_fire_simulation.domain import (
     ACCESS_CARDS
 )
 
-from fire_building_sim.probability_distributions import (
+from building_fire_simulation.probability_distributions import (
     lognormal_sampler
 )
 

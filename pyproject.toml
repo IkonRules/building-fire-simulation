@@ -14,5 +14,9 @@ dependencies = [
     "pandas>=2.0",
 ]
 
+[tool.setuptools]
+package-dir = {"" = "src"}
+
 [tool.setuptools.packages.find]
-include = ["fire_building_sim*"]
+where = ["src"]
+include = ["building_fire_simulation*"]
